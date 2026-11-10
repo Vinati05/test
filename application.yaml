@@ -1,22 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-
 metadata:
   name: gitops-nginx
   namespace: argocd
-
 spec:
   project: default
-
   source:
-    repoURL:https://github.com/Vinati05/test.git
-    targetRevision: master
+    repoURL: https://github.com/Vinati05/test.git
+    targetRevision: main
     path: .
-
   destination:
     server: https://kubernetes.default.svc
     namespace: default
-
   syncPolicy:
     automated:
       prune: true
